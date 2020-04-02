@@ -11,20 +11,25 @@ import XCTest
 
 class unittest_sample_calculatorTests: XCTestCase {
 
+    private var calculator:Calculator!
+    
+    override func setUp() {
+        super.setUp()
+        self.calculator = Calculator()
+    }
+    
     func test_AddTwoNumbers() {
-        
-        let calculator = Calculator()
-        let result = calculator.add(2,3)
-        
-        XCTAssertEqual(result, 9)
-        
+        let result = self.calculator.add(2,3)
+        XCTAssertEqual(result, 5)
     }
     
     func test_SubtractTwoNumbers() {
-        let calculator = Calculator()
-        let result = calculator.sub(2,3)
-               
+        let result = self.calculator.sub(2,3)
         XCTAssertEqual(result, -1)
     }
 
+    override class func tearDown() {
+        super.tearDown()
+    }
+    
 }
